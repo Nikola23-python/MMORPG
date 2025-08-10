@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load custom_filters %}
+{% block content %}
+<h1>ПУБЛИКАЦИИ</h1>
+    <h3>{% current_time '%b %d %Y' %}</h3>
+    <h3> {{ info |default_if_none:"Только лучшие новости!" }} </h3>
+    <h2>{{ post.title | censor }}</h2>
+    <p>
+        {{ post.content|truncatewords:30 | censor }}
+    Опубликовано: {{ post.created_at|date:"d.m.Y" }} |
+    Автор: {{ post.author.user.username }} |
+    Рейтинг: {{post.rating}}
+    Тип: {{ post.post_type }}
+    </p>
+{% endblock content %}
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Еженедельная рассылка!</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Новые публикации за неделю</h1>
+        <p>Дайджест новых материалов по вашим подпискам</p>
+    </div>
+
+    <!-- Основное содержимое -->
+    <div class="content">
+        <p>Здравствуйте, <strong>{{user.username}}</strong>!</p>
+        <p>За последнюю неделю появились новые публикации в категориях, на которые вы подписаны:</p>
+
+        <!-- Список статей -->
+        {% for post in posts %}
+        <div class="post">
+            <div class="post-title">{{ post.title }}</div>
+
+            <div class="post-meta">
+                <span>Автор: {{ post.author.user.username }}</span> |
+                <span>{{ post.created_at|date:"d E Y" }}</span> |
+                <span>{{ post.get_post_type_display }}</span>
+            </div>
+
+            <div class="categories">
+                {% for category in post.categories.all %}
+                <span class="category-badge">{{ category.name }}</span>
+                {% endfor %}
+            </div>
+
+            <p>{{ post.preview }}</p>
+
+            <a href="{{link|safe}}">Читать полностью</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

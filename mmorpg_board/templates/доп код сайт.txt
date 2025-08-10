@@ -1,0 +1,63 @@
+{% block content %}
+<h1>ПУБЛИКАЦИИ</h1>
+  {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{posts}}
+        {{ post.content|truncatewords:30 }}
+    Опубликовано: {{ post.created_at|date:"d.m.Y" }} |
+    Автор: {{ post.author.user.username }} |
+    Рейтинг: {{ post.rating }}
+    </p>
+  {% empty %}
+    <p>Нет публикаций</p>  # Блок empty для пустых списков
+  {% endfor %}
+{% endblock %}
+
+Таблица, как делать:
+{% block content %}
+   <h1>Публикации</h1>
+   <hr>
+   {% if posts %}
+       <table>
+           <tr>
+               <td>Название</td>
+               <td>Описание</td>
+               <td>Категория</td>
+               <td>Рейтинг</td>
+               <td>Дата</td>
+           </tr>
+           {% for post in posts %}
+           <tr>
+               <td>{{ post.title }}</td>
+               <td>{{ post.content }}</td>
+               <td>{{ post.categories }}</td>
+               <td>{{ post.rating }}</td>
+               <td>{{ post.created_at }}</td>
+           </tr>
+           {% endfor %}
+       </table>
+   {% else %}
+       <h2>Публикаций нет!</h2>
+   {% endif %}
+{% endblock content %}
+
+Образец фильтра:
+from django import template
+register = template.Library()
+CURRENCIES_SYMBOLS = {
+   'rub': 'Р',
+   'usd': '$',
+}
+
+@register.filter()
+def currency(value, code='rub'):
+   if value is None:
+      return ""
+   postfix = CURRENCIES_SYMBOLS[code]
+   # Возвращаемое функцией значение подставится в шаблон.
+   return f'{value} {postfix} '
+
+
+Интересная штука:
+<h3>{% current_time '%b %d %Y' %}</h3>
+   <h3> {{ info |default_if_none:"Только лучшие новости!" }} </h3>
