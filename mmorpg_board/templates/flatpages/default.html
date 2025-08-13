@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,15 +37,21 @@
                         <li class="nav-item" style="margin-right: 600px;">
                             <a class="nav-link" href="/posts/create/">Запись +</a>
                         </li>
+                        {% if not user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="/accounts/login/">Log in</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/accounts/signup/">Sign up</a>
                         </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ user.username }}</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/accounts/logout/">Log out</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

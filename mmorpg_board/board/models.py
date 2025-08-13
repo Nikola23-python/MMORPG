@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -19,8 +20,8 @@ class Post(models.Model):
         ('spellmasters', 'Мастера заклинаний'),
     ]
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title =models.CharField(max_length=100)
-    content =models.TextField()
+    title = models.CharField(max_length=100)
+    content = RichTextUploadingField()
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=12)
 
