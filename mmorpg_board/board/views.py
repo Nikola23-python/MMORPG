@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from board.filters import PostFilter
 from board.forms import PostForm
-from board.models import Post
+from board.models import Post, User
+
 
 class PostsList(ListView):
     model = Post
@@ -33,3 +34,21 @@ class PostCreate(CreateView):
     model = Post
     template_name = 'post_edit.html'
     success_url = reverse_lazy('post_list')
+
+class ConfirmUser(UpdateView):
+    model = User
+    context_object_name = 'user'
+
+    def post(self, request, *args, **kwargs):
+        if 'code' in request.POST:
+            code = request.POST['code']
+            user = User.objects.filter(code=code)
+            if user.exists():
+                user.update(is_active=True)
+                user.update(code='confirmed')
+            else:
+                return render(request, 'invalid_confirm.html', {})
+
+        return redirect('account_login')
+
+

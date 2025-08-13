@@ -4,24 +4,147 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de052785-5776-44c2-8d9a-614591f06d35" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MMORPG.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="de052785-5776-44c2-8d9a-614591f06d35" name="Changes" comment="Первое обновление(10.08.2025)">
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/account_inactive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_confirm_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_manage_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_manage_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_manage_phone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/base_reauthenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/confirm_email_verification_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/confirm_login_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/confirm_password_reset_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/confirm_phone_verification_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/account_already_exists_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/account_already_exists_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/base_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/base_notification.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_changed_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_changed_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_confirm_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_confirm_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_confirmation_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_confirmation_signup_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_confirmation_signup_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_confirmation_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_deleted_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/email_deleted_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/login_code_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/login_code_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_changed_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_changed_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_reset_code_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_reset_code_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_reset_key_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_reset_key_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_reset_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_reset_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_set_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/password_set_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/unknown_account_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email/unknown_account_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/email_confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/cannot_delete_primary_email.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/email_confirmation_failed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/email_confirmation_sent.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/email_confirmed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/email_deleted.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/logged_in.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/logged_out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/login_code_sent.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/password_changed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/password_set.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/phone_verification_sent.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/phone_verified.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/primary_email_set.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/messages/unverified_primary_email.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/password_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/password_reset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/password_reset_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/password_reset_from_key.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/password_reset_from_key_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/password_set.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/phone_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/reauthenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/request_login_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/signup_by_passkey.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/signup_closed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/snippets/already_logged_in.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/snippets/warn_no_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/verification_sent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/account/verified_email_required.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/alert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/badge.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/button.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/button_group.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/field.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/fields.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/h1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/h2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/hr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/img.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/p.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/panel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/provider.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/provider_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/tbody.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/td.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/th.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/thead.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/elements/tr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/layouts/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/layouts/entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mmorpg_board/templates/allauth/layouts/manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/board/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/board/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/board/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/board/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/board/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/board/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/mmorpg_board/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/mmorpg_board/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/mmorpg_board/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/mmorpg_board/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/templates/accounts/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmorpg_board/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/mmorpg_board/templates/flatpages/default.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Nikola23-python"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Nikola23-python/MMORPG.git",
+    "accountId": "109fb390-ab45-4aff-8fcd-6b8cd2e2a68c"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="31272PTdKL6qi1WmMX6GzQXUlCU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,9 +156,17 @@
     "Python.models.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/79059/PycharmProjects/MMORPG/mmorpg_board/templates",
+    "settings.editor.selected.configurable": "editor.preferences.completion"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\79059\PycharmProjects\MMORPG\mmorpg_board\templates" />
+      <recent name="C:\Users\79059\PycharmProjects\MMORPG\mmorpg_board\board" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -51,6 +182,19 @@
       <option name="presentableId" value="Default" />
       <updated>1754710105379</updated>
     </task>
+    <task id="LOCAL-00001" summary="Первое обновление(10.08.2025)">
+      <option name="closed" value="true" />
+      <created>1754808448588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754808448588</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Первое обновление(10.08.2025)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Первое обновление(10.08.2025)" />
   </component>
 </project>

@@ -1,7 +1,31 @@
 from django import forms
+from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 
 from .models import Post
+
+from allauth.account.forms import SignupForm
+import secrets
+
+class ConfirmSignupForm(SignupForm):
+
+    def save(self, request):
+        user = super().save(request)
+        user.is_active = False
+        code = secrets.token_urlsafe()[:10]
+        user.code = code
+        user.save()
+
+        send_mail(
+            subject= 'Активация аккаунта',
+            message= f'Активируйте свой аккаунт по коду:{code}',
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list= [user.email],
+        )
+
+        return user
+
 class PostForm(forms.ModelForm):
 
     class Meta:

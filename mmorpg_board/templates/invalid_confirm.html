@@ -1,0 +1,8 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}Неверный код активации{% endblock title %}
+
+{% block content %}
+<h3 class="mt-5">Неверный код активации!</h3>
+<h4><a href="{% url 'account_inactive' %}" class="btn btn-outline-success btn-sm">Повторите ввод кода!</a></h4>
+{% endblock content %}
