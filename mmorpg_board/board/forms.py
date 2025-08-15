@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 
-from .models import Post
+from .models import Post, Comment
 
 from allauth.account.forms import SignupForm
 import secrets
@@ -41,3 +41,11 @@ class PostForm(forms.ModelForm):
                 "Описание не должно быть идентично названию."
             )
         return cleaned_data
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+       model = Comment
+       fields = ['content']
+       widgets = {
+           'content': forms.Textarea(attrs={'class': 'form-text', 'cols': 40, 'rows': 1}),
+       }

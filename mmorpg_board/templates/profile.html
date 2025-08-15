@@ -1,0 +1,52 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>Профиль пользователя: {{ user.username }}</h1>
+        <div class="profile-avatar">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="Аватар" class="avatar">
+            {% else %}
+                <div class="default-avatar">{{ user.username|first|upper }}</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="profile-info">
+        <div class="info-section">
+            <h2>Основная информация</h2>
+            <p><strong>Имя:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d.m.Y" }}</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Активность</h2>
+            <p>Публикаций: {{posts.count}}</p>
+            <p>Комментариев: {{comments.count}}</p>
+        </div>
+    </div>
+
+    <div class="profile-actions">
+        <a href="{% url 'profile_edit' %}" class="btn btn-primary">Редактировать профиль</a>
+        <a href="{% url 'password_change' %}" class="btn btn-secondary">Сменить пароль</a>
+    </div>
+
+    <div class="user-posts">
+        <h2>Мои публикации</h2>
+        {% if posts %}
+            <ul class="post-list">
+                {% for post in posts %}
+                <li>
+                    <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                    <span class="post-date">{{ post.created_at|date:"d.m.Y" }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас пока нет публикаций.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

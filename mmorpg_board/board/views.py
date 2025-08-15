@@ -1,10 +1,13 @@
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from django.template.defaulttags import comment
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from board.filters import PostFilter
-from board.forms import PostForm
+from board.forms import PostForm, CommentForm
 from board.models import Post, User
 
 
@@ -29,6 +32,28 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'post.html'
     context_object_name = 'post'
+
+    def post(self, request, *args, **kwargs):
+        post = self.get_object()
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            send_mail(
+                subject='Отзыв на ваше объявление!',
+                message=f'Привет! На ваше объявление {post.title} был оставлен отклик {comment.content} пользователем {comment.author.username}',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[post.author.email],
+            )
+            return redirect('post_detail', post.pk)
+        return render(request, 'post.html', {'form' : form})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = CommentForm()
+        return context
 
 class PostCreate(LoginRequiredMixin, CreateView):
     form_class = PostForm

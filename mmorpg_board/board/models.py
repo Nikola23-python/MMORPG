@@ -27,6 +27,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    content = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    content = RichTextUploadingField()
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=False)

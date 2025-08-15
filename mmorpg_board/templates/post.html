@@ -13,6 +13,20 @@
     Рейтинг: {{post.rating}}
     Тип: {{ post.post_type }}
     </p>
+<h4>Добавить комментарий к объявлению:</h4>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ form.media }}
+    <input type="submit" value="Добавить">
+</form>
+
+{% if post.comments.all %}
+<h3>Все комментарии: </h3>
+{% for comment in post.comments.all %}
+Комментарий № {{ comment.id }} : {{ comment.content | safe }}
+{% endfor %}
+{% endif %}
 {% endblock content %}
 
 
