@@ -46,7 +46,7 @@
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ user.username }}</a>
+                            <a class="nav-link" href="{% url 'profile' %}" target="_blank">{{ user.username }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/accounts/logout/">Log out</a>

@@ -126,13 +126,13 @@ ACCOUNT_FORMS = {'signup': 'board.forms.ConfirmSignupForm'}
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'EMAIL_HOST_USER'
-EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
+EMAIL_HOST_USER = 'kolyamaslov23'
+EMAIL_HOST_PASSWORD = 'dpgqjspernvwerrl'
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'DEFAULT_FROM_EMAIL'
+DEFAULT_FROM_EMAIL = 'kolyamaslov23@yandex.by'
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 SILENCED_SYSTEM_CHECKS = ('account.W001','ckeditor.W001')
 

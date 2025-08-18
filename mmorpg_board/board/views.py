@@ -2,13 +2,15 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from django.template.context_processors import request
+from django.template.defaultfilters import safe
 from django.template.defaulttags import comment
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, TemplateView
 
-from board.filters import PostFilter
+from board.filters import PostFilter, CommentFilter
 from board.forms import PostForm, CommentForm
-from board.models import Post, User
+from board.models import Post, User, Comment
 
 
 class PostsList(ListView):
@@ -43,7 +45,7 @@ class PostDetail(DetailView):
             comment.save()
             send_mail(
                 subject='Отзыв на ваше объявление!',
-                message=f'Привет! На ваше объявление {post.title} был оставлен отклик {comment.content} пользователем {comment.author.username}',
+                message=f"Привет! На ваше объявление {post.title} был оставлен отклик {comment.content} пользователем {comment.author.username}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[post.author.email],
             )
@@ -83,4 +85,48 @@ class ConfirmUser(UpdateView):
 
         return redirect('account_login')
 
+class ProfileView(LoginRequiredMixin, ListView):
+    model = Comment
+    template_name = 'profile.html'
+    context_object_name = 'comments'
 
+    def __init__(self):
+        super().__init__()
+        self.filterset = None
+
+    def get_queryset(self):
+        queryset = super().get_queryset().filter(post__author=self.request.user)
+        self.filterset = CommentFilter(self.request.GET, queryset, request=self.request.user)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
+def comment_accept(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    comment.status = True
+    comment.save()
+
+    send_mail(
+        subject='Принятие комментария',
+        message='Привет, Ваш комментарий был принят автором публикации!',
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=[comment.author.email],
+    )
+
+    return redirect('profile')
+
+def comment_delete(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    comment.delete()
+
+    send_mail(
+        subject='Удаление комментария',
+        message='Привет, Ваш комментарий был удален автором публикации!',
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=[comment.author.email],
+    )
+
+    return redirect('profile')

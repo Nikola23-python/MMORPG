@@ -2,7 +2,8 @@ import django_filters
 from django_filters import FilterSet
 
 from django import forms
-from .models import Post
+from .models import Post, Comment
+
 
 class PostFilter(FilterSet):
     created_at__gt = django_filters.DateTimeFilter(
@@ -20,3 +21,14 @@ class PostFilter(FilterSet):
            'title': ['icontains'],
            'content':['icontains'],
         }
+
+class CommentFilter(FilterSet):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.user = kwargs.pop('request')
+        self.filters['post'].queryset = Post.objects.filter(author=self.user)
+
+    class Meta:
+        model = Comment
+        fields = ['post']
